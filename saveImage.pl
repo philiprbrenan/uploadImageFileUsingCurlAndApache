@@ -16,10 +16,10 @@ my $q = CGI->new();                                                             
 say "Content-type: text/html\n";                                                # Standard header
 
 if (my $i = $q->upload('image'))                                                # Get a file handle for the named file
- {my $d = ''; my $b;
+ {my $d = ''; my $b;                                                            # Data buffe
   $d .= $b while $i->read($b, 1024*1024);                                       # Read file
-  my $t = time;
-  overWriteBinaryFile("zzz_$t.png", $d);                                        # Save file
+  my $t = time;                                                                 # Time
+  overWriteBinaryFile("zzz_$t.png", $d);                                        # Save file in a unique file
 }
 
 =pod
